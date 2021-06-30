@@ -239,7 +239,7 @@
 /mob/living/carbon/proc/get_ear_protection()
 	return 0
 
-/mob/living/carbon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
+/mob/living/carbon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash, effect_duration = 25)
 	if(eyecheck() < intensity || override_blindness_check)
 		return ..()
 
@@ -424,7 +424,7 @@
 		return null
 	return species.default_language ? all_languages[species.default_language] : null
 
-/mob/living/carbon/show_inv(mob/user as mob)
+/mob/living/carbon/show_inv(mob/user)
 	user.set_machine(src)
 	var/dat = {"
 	<meta charset=\"utf-8\">
